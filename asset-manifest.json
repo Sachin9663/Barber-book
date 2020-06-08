@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/Barber-book/static/css/main.1b49208f.chunk.css",
+    "main.js": "/Barber-book/static/js/main.34be6c57.chunk.js",
+    "main.js.map": "/Barber-book/static/js/main.34be6c57.chunk.js.map",
+    "runtime-main.js": "/Barber-book/static/js/runtime-main.741f0102.js",
+    "runtime-main.js.map": "/Barber-book/static/js/runtime-main.741f0102.js.map",
+    "static/css/2.829c9cb5.chunk.css": "/Barber-book/static/css/2.829c9cb5.chunk.css",
+    "static/js/2.bd22ecb2.chunk.js": "/Barber-book/static/js/2.bd22ecb2.chunk.js",
+    "static/js/2.bd22ecb2.chunk.js.map": "/Barber-book/static/js/2.bd22ecb2.chunk.js.map",
+    "index.html": "/Barber-book/index.html",
+    "precache-manifest.90356410d2b608cd832caa8c15d8e5d0.js": "/Barber-book/precache-manifest.90356410d2b608cd832caa8c15d8e5d0.js",
+    "service-worker.js": "/Barber-book/service-worker.js",
+    "static/css/2.829c9cb5.chunk.css.map": "/Barber-book/static/css/2.829c9cb5.chunk.css.map",
+    "static/css/main.1b49208f.chunk.css.map": "/Barber-book/static/css/main.1b49208f.chunk.css.map",
+    "static/js/2.bd22ecb2.chunk.js.LICENSE.txt": "/Barber-book/static/js/2.bd22ecb2.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.741f0102.js",
+    "static/css/2.829c9cb5.chunk.css",
+    "static/js/2.bd22ecb2.chunk.js",
+    "static/css/main.1b49208f.chunk.css",
+    "static/js/main.34be6c57.chunk.js"
+  ]
+}
