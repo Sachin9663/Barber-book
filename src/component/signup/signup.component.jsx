@@ -3,6 +3,7 @@ import React from 'react';
 import FormInput from '../form-input/form-input.component';
 
 import './signup.style.scss';
+import CustomButton from '../custombutton/custombutton.component';
 
 class SignUp extends React.Component {
   constructor() {
@@ -49,7 +50,7 @@ handleSubmit=(event)=>{
                 <FormInput  type='password' label='Confirm Password' name='confirmPassword' value={this.state.confirmPassword} onChange={this.handleChange}/>
                 
                 
-                <button type='submit'> Book</button>
+                <CustomButton type='submit'> Book</CustomButton>
             </form>
         </div>
     )

@@ -1,8 +1,8 @@
 import React from 'react';
-
 import FormInput from '../form-input/form-input.component';
 import './signin.style.scss';
-
+import {Link} from 'react-router-dom';
+import CustomButton from '../custombutton/custombutton.component';
 
 class SignIn extends React.Component{
     constructor(){
@@ -10,7 +10,7 @@ class SignIn extends React.Component{
 
         this.state={
             name:'',
-            email:''
+            password:''
         };
     }
 
@@ -37,9 +37,9 @@ class SignIn extends React.Component{
                     
                     <FormInput type='text' label='Name' name='name' value={this.state.name} onChange={this.handleChange}/>
                    
-                    <FormInput type='email' label='Email' name='email' value={this.state.email} onChange={this.handleChange}/>
+                    <FormInput type='password' label='Password' name='password' value={this.state.password} onChange={this.handleChange}/>
                 <div className='button'>
-                    <button type='submit'> Sign IN</button>
+                    <CustomButton type='submit'> <Link to='/'>sign in</Link></CustomButton>
                     </div>
                 </form>
             </div>

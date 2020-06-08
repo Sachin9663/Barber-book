@@ -2,6 +2,7 @@ import React from "react";
 
 import Firebase from "firebase";
 import config from "../firebase/firebase";
+import './reservation.style.scss'
 
 class Reservation extends React.Component {
   constructor(props) {
@@ -13,7 +14,9 @@ class Reservation extends React.Component {
     };
   }
 
-  
+  componentDidMount() {
+    this.getUserData();
+  }
 
   componentDidUpdate(prevProps, prevState) {
     if (prevState !== this.state) {
@@ -28,7 +31,13 @@ class Reservation extends React.Component {
     console.log("DATA SAVED");
   };
 
-  
+  getUserData = () => {
+    let ref = Firebase.database().ref("/");
+    ref.on("value", snapshot => {
+      const state = snapshot.val();
+      this.setState(state);
+    });
+  };
 
   handleSubmit = event => {
     event.preventDefault();
@@ -65,24 +74,70 @@ class Reservation extends React.Component {
     this.refs.uid.value="";
   };
 
-  
+  removeData = developer => {
+    const { developers } = this.state;
+    const newState = developers.filter(data => {
+      return data.uid !== developer.uid;
+    });
+    this.setState({ developers: newState });
+  };
 
-//  
+  updateData = developer => {
+    this.refs.uid.value = developer.uid;
+    this.refs.name.value = developer.name;
+    this.refs.email.value = developer.email;
+    this.refs.mobileno.value = developer.mobileno;
+    this.refs.address.value = developer.address;
+    this.refs.phoneno.value = developer.phoneno;
+    
+  };
 
   render() {
-    
+    const { developers } = this.state;
     return (
       <React.Fragment>
+      <div className='reservation'>
         <div className="container">
           <div className="row">
             <div className="col-xl-12">
-              <h1>book now</h1>
+              <h1>Booked</h1>
             </div>
           </div>
-          
           <div className="row">
             <div className="col-xl-12">
-              
+              {developers.map(developer => (
+                <div
+                  key={developer.uid}
+                  className="card float-left"
+                  style={{ width: "18rem", marginRight: "1rem" }}
+                >
+                  <div className="card-body" >
+                    <h5 className="card-title">{developer.name}</h5>
+                    <p className="card-text">{developer.email}</p>
+                    <p className="card-text">{developer.mobileno}</p>
+                    <p className="card-text">{developer.address}</p>
+                    <p className="card-text">{developer.phoneno}</p>
+                    
+                    <button
+                      onClick={() => this.removeData(developer)}
+                      className="btn btn-link"
+                    >
+                      Delete
+                    </button>
+                    {/* <button
+                      onClick={() => this.updateData(developer)}
+                      className="btn btn-link"
+                    >
+                      Edit
+                    </button> */}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className="row">
+            <div className="col-xl-12">
+              <h1>book now</h1>
               <form onSubmit={this.handleSubmit}>
                 <div className="form-row">
                   <input type="hidden" ref="uid" />
@@ -93,6 +148,7 @@ class Reservation extends React.Component {
                       ref="name"
                       className="form-control"
                       placeholder="Name"
+                      required
                     />
                   </div>
                   <div className="form-group col-md-6">
@@ -102,6 +158,7 @@ class Reservation extends React.Component {
                       ref="email"
                       className="form-control"
                       placeholder="email"
+                      required
                     />
                   </div>
                   <div className="form-group col-md-6">
@@ -111,6 +168,7 @@ class Reservation extends React.Component {
                       ref="mobileno"
                       className="form-control"
                       placeholder="Mobile no"
+                      required
                     />
                   </div>
                   <div className="form-group col-md-6">
@@ -120,6 +178,7 @@ class Reservation extends React.Component {
                       ref="address"
                       className="form-control"
                       placeholder="Address"
+                      required
                     />
                   </div>
                   <div className="form-group col-md-6">
@@ -129,16 +188,17 @@ class Reservation extends React.Component {
                       ref="phoneno"
                       className="form-control"
                       placeholder="Phone no"
+                      
                     />
                   </div>
                 </div>
                 <button type="submit" className="btn btn-primary">
-                  book
+                  Save
                 </button>
               </form>
             </div>
           </div>
-          
+         </div> 
         </div>
       </React.Fragment>
     );
