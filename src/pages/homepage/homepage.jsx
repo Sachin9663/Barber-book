@@ -4,7 +4,6 @@ import './homepage.scss';
 
 const HomePage = () => (
 <div className='homepage'>
-    
     <Reservation/>
 </div>
 );

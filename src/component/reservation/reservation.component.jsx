@@ -164,7 +164,7 @@ class Reservation extends React.Component {
                   <div className="form-group col-md-6">
                     <label>Mobile No</label>
                     <input
-                      type="number"
+                      type="tel"
                       ref="mobileno"
                       className="form-control"
                       placeholder="Mobile no"
@@ -184,7 +184,7 @@ class Reservation extends React.Component {
                   <div className="form-group col-md-6">
                     <label>Phone No</label>
                     <input
-                      type="number"
+                      type="tel"
                       ref="phoneno"
                       className="form-control"
                       placeholder="Phone no"
