@@ -9,15 +9,12 @@ import DashBoard from './pages/dashboard/dashboard.component';
 function App() {
   return (
     <div className="App">
-    <Header/>
-    
-    <Switch>
-    <Route exact path='/' component={ HomePage }/>
-    <Route exact path='/login' component={ Login }/>
-   <Route exact path='/dash' component={ DashBoard }/>
-    </Switch>
-    
-   
+      <Header/>
+      <Switch>
+        <Route exact path='/' component={ HomePage }/>
+        <Route exact path='/login' component={ Login }/>
+        <Route exact path='/dash' component={ DashBoard }/>
+      </Switch>
     </div>
   );
 }
